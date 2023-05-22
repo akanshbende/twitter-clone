@@ -10,7 +10,7 @@ function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
 
-  console.log(typeof tweetMessage);
+  // console.log(typeof tweetMessage);
   const sendTweet = (e) => {
     // as we are in form ,when we click on submit it refresh page so to prevent it we use e.prevent defalut
     e.preventDefault(); //stops refresh

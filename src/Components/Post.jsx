@@ -40,7 +40,8 @@ function Post({
               </h3>
             </div>
             <div className="post__headerDescription">
-              <p>{text}</p>
+              <p>{text.tweetMessage}</p>
+              {console.log(text)}
             </div>
           </div>
           <img src={image} width={"500px"} alt="post image" />

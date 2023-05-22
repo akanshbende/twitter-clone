@@ -20,7 +20,7 @@ function Feed() {
     }
     getData();
   }, []);
-
+  // console.log(posts);
   return (
     <>
       <div className="feed">
