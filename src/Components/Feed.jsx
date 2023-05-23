@@ -26,7 +26,8 @@ function Feed() {
       }
     }
     getData();
-  }, [posts]);
+    console.log(posts);
+  }, []);
   // console.log(posts);
   const deleteTweet = (post) => {
     remove(ref(db, post.key));
