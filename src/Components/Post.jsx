@@ -8,42 +8,18 @@ import {
   Repeat,
   VerifiedUser,
 } from "@mui/icons-material";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
 import { Avatar } from "@mui/material";
 import React, { forwardRef } from "react";
-import { ref, remove } from "firebase/database";
+
 import VerifiedIcon from "@mui/icons-material/Verified";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { doc, updateDoc, deleteField, deleteDoc } from "firebase/firestore";
-import db from "./Firebase";
-
 const Post = forwardRef(
   (
-    {
-      displyName,
-      username,
-      verified,
-      timestamp,
-      text,
-      image,
-      avatar,
-      deleteTweet,
-    },
+    { displyName, username, verified, timestamp, text, image, avatar, onClick },
     ref
   ) => {
-    const handleDelete = async () => {
-      // await deleteDoc(doc(db, "posts"));
-      remove(ref(db, "posts/", docRef.id))
-        .then(() => {
-          console.log("Remove Succeeed...");
-        })
-        .catch((error) => {
-          console.log("Remove Failed" + error.message);
-        });
-    };
-
     return (
       <>
         <div className="post" ref={ref}>
@@ -60,7 +36,9 @@ const Post = forwardRef(
                     {username}
                   </span>
                 </h3>
-                <div className="delete-post" onClick={deleteTweet}>
+
+                {/* IMPPPPPPPPPPPPPP DELETEEEEEEEEEEEEE */}
+                <div className="delete-post" onClick={onClick}>
                   {/* Option button */}
                   <DeleteIcon />
                 </div>

@@ -4,34 +4,49 @@ import db from "./Firebase";
 import Post from "./Post";
 import { getDocs, collection } from "firebase/firestore";
 import SearchIcon from "@mui/icons-material/Search";
-
+import { doc, deleteDoc } from "firebase/firestore";
 import FlipMove from "react-flip-move";
 
 import "firebase/firestore";
-import { ref, remove } from "firebase/database";
+import { query, ref, remove } from "firebase/database";
+
 function Feed() {
   const [posts, setPosts] = useState([]);
-  // const [docId, setDocId] = useState("");
 
-  useEffect(() => {
-    // Get a list of posts from your database
-    async function getData() {
-      try {
-        const postCol = collection(db, "posts");
-        const postSnapshot = await getDocs(postCol);
-        const postList = postSnapshot.docs.map((doc) => doc.data());
-        setPosts(postList);
-      } catch (error) {
-        console.log("Error getting posts ->", error);
-      }
+  const deleteTweet = async (post) => {
+    await deleteDoc(doc(db, "posts", post.id));
+    console.log(id);
+  };
+
+  async function getData() {
+    try {
+      const postCol = query(collection(db, "posts"));
+      const postSnapshot = await getDocs(postCol);
+      const postList = postSnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setPosts(postList);
+    } catch (error) {
+      console.log("Error getting posts ->", error);
     }
+  }
+  useEffect(() => {
     getData();
     console.log(posts);
   }, []);
+
+  // useEffect(() => {
+  //   // Get a list of posts from your database
+
+  //   getData();
+  //   console.log(posts);
+  // }, []);
   // console.log(posts);
-  const deleteTweet = (post) => {
-    remove(ref(db, post.key));
-  };
+
+  {
+    /* IMPPPPPPPPPPPPPP DELETEEEEEEEEEEEEE */
+  }
 
   return (
     <>
@@ -70,6 +85,7 @@ function Feed() {
               key={index}
               // value={docId}
               // onChange={(e) => setDocId(e.target.value)}
+
               displyName={post.displyName}
               username={post.username}
               verified={post.verified}
@@ -77,6 +93,7 @@ function Feed() {
               avatar={post.avatar}
               image={post.image}
               deleteTweet={deleteTweet}
+              onClick={() => deleteTweet(post)}
             />
           ))}
         </FlipMove>

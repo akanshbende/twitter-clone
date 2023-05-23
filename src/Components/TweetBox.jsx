@@ -17,6 +17,7 @@ function TweetBox() {
     e.preventDefault(); //stops refresh
 
     const data = {
+      // uuid:,
       displyName: "Akansh Bende",
       username: "asbende",
       verified: true,
