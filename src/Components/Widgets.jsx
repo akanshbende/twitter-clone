@@ -24,9 +24,22 @@ function Widgets() {
         <div className="widgets__widgetContainer">
           <h2>What's happening</h2>
           <TwitterTimelineEmbed
+            className="twitter-timeline scrollbar"
             sourceType="profile"
-            screenName="cleverqazi"
-            options={{ height: 600 }}
+            screenName="shadcn"
+            options={{ height: 400 }}
+            noHeader="true"
+            noBorders="true"
+            noFooter="true"
+          />
+          <TwitterTimelineEmbed
+            className="twitter-timeline scrollbar"
+            sourceType="profile"
+            screenName="reactjs"
+            options={{ height: 400 }}
+            noHeader="true"
+            noBorders="true"
+            noFooter="true"
           />
         </div>
       </div>

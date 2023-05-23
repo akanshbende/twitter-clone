@@ -4,28 +4,35 @@ import { Avatar, Button } from "@mui/material";
 import React from "react";
 import db from "./Firebase";
 import doge from "../../public/doge.jpg";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, getDocs } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
 
-  // console.log(typeof tweetMessage);
-  const sendTweet = (e) => {
+  const sendTweet = async (e) => {
     // as we are in form ,when we click on submit it refresh page so to prevent it we use e.prevent defalut
     e.preventDefault(); //stops refresh
-    db.ref("posts")
-      .set({
-        displyName: "Akansh Bende",
-        username: "asbende",
-        verified: true,
-        text: tweetMessage,
-        image: tweetImage,
-        avatar: "doge.jpg",
-      })
-      .catch(alert);
 
-    //after mapping we are reset them to get clear input field again
+    const data = {
+      displyName: "Akansh Bende",
+      username: "asbende",
+      verified: true,
+      text: tweetMessage,
+      image: tweetImage,
+      avatar: "doge.jpg",
+    };
+
+    // Use the `push` method to add the data to the database
+    try {
+      // Add data to Firestore
+      const docRef = await addDoc(collection(db, "posts"), data);
+      console.log("Data added successfully!", docRef.id);
+    } catch (error) {
+      console.error("Error adding data: ", error);
+    }
+    // Reset the form
     setTweetMessage("");
     setTweetImage("");
   };
@@ -37,7 +44,7 @@ function TweetBox() {
           <div className="tweetBox__input">
             <Avatar src={doge} style={{ width: "50px", height: "50px" }} />
             <input
-              // value={tweetMessage}
+              value={tweetMessage}
               onChange={(e) => setTweetMessage(e.target.value)}
               placeholder="What's Happening?"
               type="text"
