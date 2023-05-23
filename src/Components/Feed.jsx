@@ -16,7 +16,7 @@ function Feed() {
     // Get a list of posts from your database
     async function getData() {
       try {
-        const postCol = collection(db, "tpost");
+        const postCol = collection(db, "posts");
         const postSnapshot = await getDocs(postCol);
         const postList = postSnapshot.docs.map((doc) => doc.data());
         setPosts(postList);

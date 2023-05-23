@@ -8,7 +8,7 @@ body {
   display: flex;
   height: 100vh;
   max-width: 1300px;
-
+  overflow-y: hidden;
   /* //margin auto can add more and more margin in order to get div in center */
   margin-left: auto;
   margin-right: auto;

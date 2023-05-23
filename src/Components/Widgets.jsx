@@ -27,19 +27,13 @@ function Widgets() {
             className="twitter-timeline scrollbar"
             sourceType="profile"
             screenName="shadcn"
-            options={{ height: 400 }}
-            noHeader="true"
-            noBorders="true"
-            noFooter="true"
+            options={{ height: 300 }}
           />
           <TwitterTimelineEmbed
             className="twitter-timeline scrollbar"
             sourceType="profile"
             screenName="reactjs"
-            options={{ height: 400 }}
-            noHeader="true"
-            noBorders="true"
-            noFooter="true"
+            options={{ height: 300 }}
           />
         </div>
       </div>
