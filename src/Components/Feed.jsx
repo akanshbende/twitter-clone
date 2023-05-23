@@ -3,6 +3,7 @@ import TweetBox from "./TweetBox";
 import db from "./Firebase";
 import Post from "./Post";
 import { getDocs, collection } from "firebase/firestore";
+import SearchIcon from "@mui/icons-material/Search";
 
 import FlipMove from "react-flip-move";
 
@@ -37,6 +38,25 @@ function Feed() {
         {/* Header */}
         <div className="feed__header">
           <h2>Home</h2>
+          <div
+            className="widgets__input"
+            style={{
+              marginTop: "0",
+              width: "100%",
+              backgroundColor: "#f5f8fa",
+            }}
+          >
+            <SearchIcon className="widgets__searchIcon" />
+            <input
+              placeholder="Search Twitter"
+              type="text"
+              style={{
+                marginTop: "0",
+                width: "100%",
+                backgroundColor: "#f5f8fa",
+              }}
+            />
+          </div>
         </div>
         {/* TweetBox */}
 
