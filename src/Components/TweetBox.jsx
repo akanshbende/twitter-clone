@@ -1,17 +1,19 @@
 import { Height } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Avatar, Button } from "@mui/material";
 import React from "react";
 import db from "./Firebase";
 import doge from "../../public/doge.jpg";
 import { getFirestore, getDocs } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
-function TweetBox() {
+function TweetBox(props) {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
 
-  const [closep, setClosep] = useState(false);
+  // const [reload, setReload] = useState(false);
+
   const sendTweet = async (e) => {
     // as we are in form ,when we click on submit it refresh page so to prevent it we use e.prevent defalut
     e.preventDefault(); //stops refresh
@@ -37,6 +39,13 @@ function TweetBox() {
     // Reset the form
     setTweetMessage("");
     setTweetImage("");
+
+    // setReload(!reload);
+    // console.log(reload);
+
+    const compReload = props.handleState;
+
+    compReload();
   };
 
   return (

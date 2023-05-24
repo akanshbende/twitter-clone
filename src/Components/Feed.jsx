@@ -13,9 +13,19 @@ import { query, ref, remove } from "firebase/database";
 function Feed() {
   const [posts, setPosts] = useState([]);
 
+  const [state, setState] = useState(false);
+
+  // const [data, setData] = useState([]);
+
+  const handleState = () => {
+    setState(!state);
+  };
+
   const deleteTweet = async (post) => {
     await deleteDoc(doc(db, "posts", post.id));
-    console.log(id);
+    // console.log(id);
+    console.log("post Deleted", post.id);
+    handleState();
   };
 
   async function getData() {
@@ -26,27 +36,20 @@ function Feed() {
         ...doc.data(),
         id: doc.id,
       }));
+      console.log(postList);
       setPosts(postList);
+      // setData(postList);
+      // console.log(data);
+      console.log();
     } catch (error) {
       console.log("Error getting posts ->", error);
     }
   }
   useEffect(() => {
     getData();
+
     console.log(posts);
-  }, []);
-
-  // useEffect(() => {
-  //   // Get a list of posts from your database
-
-  //   getData();
-  //   console.log(posts);
-  // }, []);
-  // console.log(posts);
-
-  {
-    /* IMPPPPPPPPPPPPPP DELETEEEEEEEEEEEEE */
-  }
+  }, [state]);
 
   return (
     <>
@@ -75,17 +78,12 @@ function Feed() {
           </div>
         </div>
         {/* TweetBox */}
-
-        <TweetBox />
-
+        <TweetBox handleState={handleState} />
         {/* Posts */}
         <FlipMove>
           {posts.map((post, index) => (
             <Post
               key={index}
-              // value={docId}
-              // onChange={(e) => setDocId(e.target.value)}
-
               displyName={post.displyName}
               username={post.username}
               verified={post.verified}
@@ -93,11 +91,11 @@ function Feed() {
               avatar={post.avatar}
               image={post.image}
               deleteTweet={deleteTweet}
+              // DELETE postttttt
               onClick={() => deleteTweet(post)}
             />
           ))}
         </FlipMove>
-
         {/* Posts */}
       </div>
     </>
