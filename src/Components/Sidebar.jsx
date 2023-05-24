@@ -18,6 +18,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Popup from "reactjs-popup";
 import { useState } from "react";
 import PopUp from "./PopUp";
+import MoreOptions from "./MoreOptions";
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -63,7 +64,7 @@ function Sidebar() {
             <h4>@asbende</h4>
           </div>
           <div className="more_options">
-            <MoreHorizIcon />
+            <MoreOptions />
           </div>
         </div>
       </div>
