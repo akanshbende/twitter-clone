@@ -32,7 +32,7 @@ function Sidebar() {
         <TwitterIcon className="sidebar_twitterIcon" />
         {/* SidebarOption button */}
         <SideBarOption active Icon={HomeIcon} text="Home" />
-        <SideBarOption Icon={SearchIcon} text="Exploe" />
+        <SideBarOption Icon={SearchIcon} text="Explore" />
         <SideBarOption Icon={NotificationsNoneIcon} text="Notification" />
         <SideBarOption Icon={MailOutlineOutlined} text="Message" />
         <SideBarOption Icon={BookmarkAddOutlined} text="Bookmarks" />

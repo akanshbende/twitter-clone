@@ -9,6 +9,7 @@ body {
   height: 100vh;
   max-width: 1300px;
   overflow-y: hidden;
+  /* overflow-x: inherit; */
   /* //margin auto can add more and more margin in order to get div in center */
   margin-left: auto;
   margin-right: auto;
@@ -45,13 +46,7 @@ body {
 }
 .more_options {
   align-items: center;
-  margin-left: 50px;
-  border-radius: 50%;
-  color: gray;
-}
-.more_options:hover {
-  color: black;
-  cursor: pointer;
+  margin-left: 30px;
 }
 
 /* Sidebar  Ends */
@@ -125,6 +120,8 @@ body {
 /* //toggling active tab */
 .sidebarOption--active {
   color: var(--twitter-color);
+  background-color: var(--twitter-background);
+  border-radius: 30px;
 }
 
 .sidebar__tweet {

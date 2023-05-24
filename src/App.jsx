@@ -7,6 +7,7 @@ import Feed from "./Components/Feed";
 import Widgets from "./Components/Widgets";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./addRequire.jsx";
 // import { Feed } from "@mui/icons-material";
 
 function App() {
