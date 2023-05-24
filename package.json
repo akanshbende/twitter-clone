@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.1",
+    "browserify-shim": "^3.8.16",
     "dotenv": "^16.0.3",
     "firebase": "^9.22.0",
     "har-validator": "^5.1.5",
@@ -23,12 +24,15 @@
     "react-twitter-embed": "^4.0.4",
     "reactjs-popup": "^2.0.5",
     "request": "^2.88.2",
+    "save": "^2.9.0",
+    "uniq": "^1.0.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
+    "browserify": "^17.0.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
